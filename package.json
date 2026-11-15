@@ -4,15 +4,15 @@
   "version": "0.0.10",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 127.0.0.1",
     "build": "tsc && vite build",
     "test:sim": "tsc -p tsconfig.sim.json && node -e \"require('fs').mkdirSync('.sim-dist',{recursive:true});require('fs').writeFileSync('.sim-dist/package.json', JSON.stringify({type:'commonjs'}))\" && node .sim-dist/scripts/testGameplayScenarios.js",
     "test:architecture": "node scripts/testArchitectureContracts.mjs",
     "test": "npm run build && npm run test:sim && npm run test:architecture",
-    "preview": "vite preview"
+    "preview": "vite preview --host 127.0.0.1"
   },
   "devDependencies": {
     "typescript": "~5.9.3",
-    "vite": "^7.3.2"
+    "vite": "7.3.8"
   }
 }
